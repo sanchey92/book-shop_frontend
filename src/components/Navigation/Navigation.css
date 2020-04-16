@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  align-items: center;
+  background-color: dodgerblue;
+  height: 50px;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.active {
+  color: aqua;
+}
