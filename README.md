@@ -1,4 +1,4 @@
-This is a Front-end part of my pet-project "book-shop"
+This is a Frontend part of my pet-project "book-shop"
 
 Stack of technologists:
 
