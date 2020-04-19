@@ -1,0 +1,36 @@
+.product-form {
+  width: 600px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-wrapper {
+  width: 100%;
+}
+
+.form-control-block label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 15px;
+  color: dodgerblue;
+}
+
+.form-control-block button {
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 150px;
+  height: 30px;
+  cursor: pointer;
+  background-color: dodgerblue;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  transition: .3s;
+}
+
+.form-control-block button:hover {
+  box-shadow: 0 0 5px slateblue;
+}

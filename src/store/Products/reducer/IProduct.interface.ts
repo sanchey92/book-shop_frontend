@@ -2,6 +2,6 @@ export default interface IProductInterface {
   id?: string,
   title: string
   imgUrl: string
-  price: string
+  price: number
   description?: string
 }

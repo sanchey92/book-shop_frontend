@@ -2,11 +2,34 @@ import React, {FC} from "react";
 import {NavLink} from "react-router-dom";
 import './Navigation.css';
 
-const Navigation: FC = () => {
+type Routes = {
+  link: string,
+  linkTitle: string,
+  exact: boolean
+}
+
+interface INavigationProps {
+  routes: Routes[]
+}
+
+const Navigation: FC<INavigationProps> = ({routes}) => {
   return (
     <nav>
-      <NavLink to={'/'} activeClassName='active' exact>Home</NavLink>
-      <NavLink to={'/products'}>Books</NavLink>
+      {
+        routes.map((route) => {
+          const {link, linkTitle, exact} = route;
+          return (
+            <NavLink
+              key={linkTitle}
+              to={link}
+              activeClassName='active'
+              exact={exact}
+            >
+              {linkTitle}
+            </NavLink>
+          )
+        })
+      }
     </nav>
   )
 };

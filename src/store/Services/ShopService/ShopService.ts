@@ -1,4 +1,4 @@
-import IProductInterface from "../Products/reducer/IProduct.interface";
+import IProductInterface from "../../Products/reducer/IProduct.interface";
 
 export default class ShopService {
 
@@ -11,5 +11,4 @@ export default class ShopService {
     const product = await fetch(`http://localhost:3001/shop/products/${id}`);
     return await product.json();
   };
-
 }
