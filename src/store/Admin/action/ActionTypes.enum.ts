@@ -1,0 +1,7 @@
+enum ActionTypesEnum {
+  POST_ADD_PRODUCT = 'POST_ADD_PRODUCT',
+  DELETE_PRODUCT_BY_ID = 'DELETE_PRODUCT_BY_ID',
+  FETCH_SUCCESS = 'FETCH_SUCCESS'
+}
+
+export default ActionTypesEnum;

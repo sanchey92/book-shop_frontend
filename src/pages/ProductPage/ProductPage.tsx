@@ -1,22 +1,19 @@
 import React, {FC, useEffect} from "react";
-
 import {fetchProductsStart} from "../../store/Products/actions/ActionCreators";
 import './ProductPage.css';
 import ProductCard from "../../components/ProductCard/ProductCard";
-import {connect} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import IAppStateInterface from "../../store/IAppState.inteface";
-import IProductInterface from "../../store/Products/reducer/IProduct.interface";
 
-interface IProductPageProps  {
-  data: IProductInterface[],
-  getProducts: () => void
-}
+const ProductPage: FC = () => {
 
-const ProductPage: FC<IProductPageProps> = ({data, getProducts}) => {
+  const dispatch = useDispatch();
+  const data = useSelector((state: IAppStateInterface) => state.productState.data)
 
   useEffect(() => {
-    getProducts()
-  }, [getProducts])
+    dispatch(fetchProductsStart())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchProductsStart])
 
   return (
     <ul className='product-page'>
@@ -39,15 +36,5 @@ const ProductPage: FC<IProductPageProps> = ({data, getProducts}) => {
   )
 }
 
-const mapStateToProps = (state: IAppStateInterface) => {
-  const {data} = state.productState
-  return {data}
-}
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    getProducts: () => dispatch(fetchProductsStart())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
+export default ProductPage;

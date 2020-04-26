@@ -5,11 +5,13 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import IAppStateInterface from "./IAppState.inteface";
 import {productSaga} from "./sagas/Saga";
 import {reducer as formReducer} from "redux-form";
+import adminReducer from "./Admin/reducer/AdminReducer";
 
 const sagaMiddleware = createSagaMiddleware()
 const rootReducer = combineReducers({
   productState: productsReducer,
-  form: formReducer
+  form: formReducer,
+  adminState: adminReducer
 })
 
 export default function configureStore(): Store<IAppStateInterface, any> {

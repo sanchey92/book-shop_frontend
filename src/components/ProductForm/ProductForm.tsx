@@ -6,13 +6,14 @@ import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
 
 interface IProductForm {
-  handleSubmit: SubmitHandler
+  handleSubmit: SubmitHandler,
+  data?: IProductForm
 }
 
 const validator = new Validator();
 const minLength = validator.minLengthCreator(6)
 
-const ProductForm: FC<IProductForm> = ({handleSubmit}) => {
+const ProductForm: FC<IProductForm> = ({handleSubmit, }) => {
 
   return (
     <form

@@ -1,0 +1,9 @@
+.book-list-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.book-list {
+    margin-top: 50px;
+    list-style: none;
+}

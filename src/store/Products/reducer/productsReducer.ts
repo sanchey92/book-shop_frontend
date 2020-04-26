@@ -5,6 +5,13 @@ import productActions from "../actions/ActionTypes";
 
 const initialState: IStateInterface = {
   data: [],
+  product: {
+    id: '',
+    title: '',
+    imgUrl: '',
+    price: 0,
+    description: ''
+  },
   isFetching: false
 }
 
