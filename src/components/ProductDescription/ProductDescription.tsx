@@ -21,7 +21,9 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById}) => {
 
   useEffect(() => {
     fetchById(idx);
-  }, [fetchById, idx])
+    return () => fetchById();
+    // eslint-disable-next-line
+  }, [idx])
 
   return (
     <div className='product-description'>

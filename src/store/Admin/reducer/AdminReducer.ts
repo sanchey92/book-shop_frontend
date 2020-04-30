@@ -8,30 +8,43 @@ const initialState = {
 }
 
 const adminReducer: Reducer<IAdminReducer, AdminAction> =
-  (state = initialState, action):IAdminReducer => {
+  (state = initialState, action): IAdminReducer => {
 
-  switch (action.type) {
+    switch (action.type) {
 
-    case ActionTypesEnum.POST_ADD_PRODUCT:
-      return {
-        ...state,
-        isFetching: false
-      }
+      case ActionTypesEnum.POST_ADD_PRODUCT:
+        return {
+          ...state,
+          isFetching: false
+        }
 
-    case ActionTypesEnum.DELETE_PRODUCT_BY_ID:
-      return {
-        ...state,
-        isFetching: action.isLoading
-      }
+      case ActionTypesEnum.DELETE_PRODUCT_BY_ID:
+        return {
+          ...state,
+          isFetching: action.isLoading
+        }
 
-    case ActionTypesEnum.FETCH_SUCCESS:
-      return {
-        ...state,
-        isFetching: action.isLoading
-      }
+      case ActionTypesEnum.FETCH_STARTED:
+        return {
+          ...state,
+          isFetching: action.isLoading
+        }
 
-    default: return state
+      case ActionTypesEnum.FETCH_FAILURE:
+        return {
+          ...state,
+          isFetching: action.isLoading
+        }
+
+      case ActionTypesEnum.FETCH_SUCCESS:
+        return {
+          ...state,
+          isFetching: action.isLoading
+        }
+
+      default:
+        return state
+    }
   }
-}
 
 export default adminReducer;

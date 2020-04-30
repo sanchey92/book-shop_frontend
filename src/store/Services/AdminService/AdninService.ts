@@ -2,7 +2,7 @@ import IProductInterface from "../../Products/reducer/IProduct.interface";
 
 export default class AdminService {
 
-  postAddProduct = async (data: IProductInterface) => {
+ static postAddProduct = async (data: IProductInterface) => {
 
     const URL = 'http://localhost:3001/admin';
 
