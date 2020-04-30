@@ -1,6 +1,8 @@
 import React, {FC} from "react";
 import './BookListItem.css';
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {deleteProductById} from "../../store/Admin/action/ActionCreators";
 
 interface IProps {
   id: string,
@@ -9,8 +11,11 @@ interface IProps {
 
 const BookListItem: FC<IProps> = ({id, title}) => {
 
+  const dispatch = useDispatch();
+
   const clickDeleteHandler = () => {
     console.log(`deleted item ${id}`);
+    dispatch(deleteProductById(id))
   }
 
   return (

@@ -2,7 +2,7 @@ import IProductInterface from "../../Products/reducer/IProduct.interface";
 
 export default class AdminService {
 
- static postAddProduct = async (data: IProductInterface) => {
+  static postAddProduct = async (data: IProductInterface) => {
 
     const URL = 'http://localhost:3001/admin';
 
@@ -17,5 +17,9 @@ export default class AdminService {
 
     const response = await fetch(`${URL}/add-product`, setting);
     return await response.json()
+  }
+
+  static deleteProductById = async (id: string) => {
+    return  await fetch(`http://localhost:3001/admin/delete-product/${id}`, {method: 'DELETE'});
   }
 }

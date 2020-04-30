@@ -3,7 +3,7 @@ import ShopService from "../Services/ShopService/ShopService";
 import {fetchProductSuccess, fetchProductByIdSuccess, fetchProductFailure} from "../Products/actions/ActionCreators";
 import ProductsActionTypesEnum from "../Products/actions/ProductsActionTypes.enum";
 import {IFetchProductById} from "../Products/actions/InterfacesActionCreators";
-import {IPostAddProduct} from "../Admin/action/IActionCreators";
+import {IDeleteProduct, IPostAddProduct} from "../Admin/action/IActionCreators";
 import AdminService from "../Services/AdminService/AdninService";
 import {fetchFailure, fetchSuccess} from "../Admin/action/ActionCreators";
 import ActionTypesEnum from "../Admin/action/ActionTypes.enum";
@@ -38,11 +38,21 @@ function* postAddProductSaga (action: IPostAddProduct) {
   }
 }
 
+function* deleteProductById (action: IDeleteProduct) {
+  try {
+    yield call(AdminService.deleteProductById, action.id)
+    yield put(fetchSuccess())
+  } catch {
+    yield put(fetchFailure())
+  }
+}
+
 function* productSaga() {
   yield all([
     takeEvery(ProductsActionTypesEnum.FETCH_PRODUCTS_START, getProductsSaga),
     takeEvery(ProductsActionTypesEnum.FETCH_PRODUCT_BY_ID, getProductByIdSaga),
-    takeEvery(ActionTypesEnum.POST_ADD_PRODUCT, postAddProductSaga)
+    takeEvery(ActionTypesEnum.POST_ADD_PRODUCT, postAddProductSaga),
+    takeEvery(ActionTypesEnum.DELETE_PRODUCT_BY_ID, deleteProductById)
   ])
 }
 

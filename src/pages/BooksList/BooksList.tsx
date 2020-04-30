@@ -13,7 +13,7 @@ const BooksList: FC = () => {
   useEffect(() => {
     dispatch(fetchProductsStart());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchProductsStart])
+  }, [data])
 
   return (
     <div className='book-list-wrapper'>
