@@ -30,7 +30,6 @@ const App: FC = () => {
         <Route path={'/admin'} exact component={AdminPage}/>
         <Route path={'/admin/product-list'} component={BooksList}/>
         <Route path={'/admin/add-product'} exact component={EditProductPage}/>
-        <Route path={'/admin/add-product/:prodId'} exact component={EditProductPage}/>
       </Switch>
     </div>
   )

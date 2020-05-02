@@ -24,7 +24,7 @@ const adminReducer: Reducer<IAdminReducer, AdminAction> =
           isFetching: action.isLoading
         }
 
-      case ActionTypesEnum.FETCH_STARTED:
+      case ActionTypesEnum.DELETE_SUCCESS:
         return {
           ...state,
           isFetching: action.isLoading

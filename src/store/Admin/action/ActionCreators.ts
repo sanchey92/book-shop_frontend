@@ -1,4 +1,4 @@
-import {IDeleteProduct, IFetchFailure, IFetchStarted, IFetchSuccess, IPostAddProduct} from "./IActionCreators";
+import {IDeleteProduct, IDeleteSuccess, IFetchFailure, IFetchSuccess, IPostAddProduct} from "./IActionCreators";
 import ActionTypesEnum from "./ActionTypes.enum";
 
 const postAddProduct = (product: any): IPostAddProduct => {
@@ -17,10 +17,10 @@ const deleteProductById = (id: string): IDeleteProduct => {
   }
 }
 
-const fetchStarted = (): IFetchStarted => {
+const deleteSuccess = (): IDeleteSuccess => {
   return {
-    type: ActionTypesEnum.FETCH_STARTED,
-    isLoading: true
+    type: ActionTypesEnum.DELETE_SUCCESS,
+    isLoading: false
   }
 }
 
@@ -38,10 +38,11 @@ const fetchSuccess = (): IFetchSuccess => {
   }
 }
 
+
 export {
   postAddProduct,
   deleteProductById,
-  fetchStarted,
+  deleteSuccess,
   fetchFailure,
   fetchSuccess
 }

@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {IStateInterface} from "../../store/Products/reducer/IState.interface";
 import './ProductDescription.css'
 
-interface matchParams {
+export interface matchParams {
   prodId: string,
 }
 

@@ -17,8 +17,8 @@ export interface IFetchSuccess {
   isLoading: boolean
 }
 
-export interface IFetchStarted {
-  type: ActionTypesEnum.FETCH_STARTED,
+export interface IDeleteSuccess {
+  type: ActionTypesEnum.DELETE_SUCCESS,
   isLoading: boolean
 }
 

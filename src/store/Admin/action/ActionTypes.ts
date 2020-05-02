@@ -1,10 +1,16 @@
-import {IDeleteProduct, IFetchFailure, IFetchStarted, IFetchSuccess, IPostAddProduct} from "./IActionCreators";
+import {
+  IDeleteProduct,
+  IDeleteSuccess,
+  IFetchFailure,
+  IFetchSuccess,
+  IPostAddProduct
+} from "./IActionCreators";
 
 type AdminAction =
   IPostAddProduct
   | IDeleteProduct
   | IFetchSuccess
-  | IFetchStarted
+  | IDeleteSuccess
   | IFetchFailure
 
 export default AdminAction

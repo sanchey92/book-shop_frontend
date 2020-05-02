@@ -8,7 +8,6 @@ const EditProductPage: FC = () => {
   const dispatch = useDispatch()
 
   const onSubmitHandler: FormSubmitHandler = (formData: any): void => {
-    console.log(formData);
     dispatch(postAddProduct(formData))
     dispatch(reset('Product'));
   }
@@ -18,4 +17,4 @@ const EditProductPage: FC = () => {
     </div>
   )
 }
-export default EditProductPage
+export default EditProductPage;

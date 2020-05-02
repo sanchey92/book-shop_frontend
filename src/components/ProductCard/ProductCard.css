@@ -16,10 +16,13 @@
   margin: 15px;
   max-width: 250px;
   font-size: 18px;
+  height: 45px;
 }
 
 .product-card__image {
   margin: 15px;
+  width: 250px;
+  height: 300px;
 }
 
 .product-card__image img {
