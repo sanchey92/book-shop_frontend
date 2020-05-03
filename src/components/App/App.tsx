@@ -1,7 +1,6 @@
 import React, {FC} from "react";
 import {Switch, Route} from 'react-router-dom';
 import Navigation from "../Navigation/Navigation";
-import HomePage from "../../pages/HomePage/HomePage";
 import ProductPage from "../../pages/ProductPage/ProductPage";
 import Cart from "../../pages/Cart/Cart";
 import ProductDescription from "../ProductDescription/ProductDescription";
@@ -12,8 +11,7 @@ import BooksList from "../../pages/BooksList/BooksList";
 const App: FC = () => {
 
   const routes = [
-    {link: '/', linkTitle: 'Home', exact: true},
-    {link: '/products', linkTitle: 'Books', exact: false},
+    {link: '/', linkTitle: 'Books', exact: true},
     {link: '/cart', linkTitle: 'Cart', exact: false},
     {link: '/Admin/add-product', linkTitle: 'Add product', exact: true},
     {link: '/Admin/product-list', linkTitle: 'Books List', exact: false},
@@ -23,8 +21,7 @@ const App: FC = () => {
     <div>
       <Navigation routes={routes}/>
       <Switch>
-        <Route path={'/'} exact component={HomePage} />
-        <Route path={'/products'} exact component={ProductPage}/>
+        <Route path={'/'} exact component={ProductPage}/>
         <Route path={'/products/:prodId'} component={ProductDescription}/>
         <Route path={'/cart'} component={Cart}/>
         <Route path={'/admin'} exact component={AdminPage}/>
