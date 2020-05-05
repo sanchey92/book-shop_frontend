@@ -4,11 +4,11 @@ export default class CartService {
 
   }
 
-  static addToCart = async () => {
+  static addToCart = async (id: string) => {
 
   }
 
-  static deleteFromCart = async () => {
+  static deleteFromCart = async (id: string) => {
     
   }
 }

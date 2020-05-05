@@ -24,7 +24,6 @@ const productsReducer: Reducer<IStateInterface, productActions> = (
       return {
         ...state,
         data: actions.data,
-        product: state.product,
         isFetching: actions.isLoading
       }
 
