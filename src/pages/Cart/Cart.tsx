@@ -1,56 +1,18 @@
 import React, {FC} from "react";
 import './Cart.css'
+import CartTable from "../../components/CartTable/CartTable";
 
 const Cart: FC = () => {
+
   return (
     <div className='table-wrapper'>
-
-        <h2>Your Cart</h2>
-
-         <table>
-           <thead>
-           <tr>
-             <th>Books name</th>
-             <th>Quantity</th>
-             <th>Actions</th>
-           </tr>
-           </thead>
-           <tbody>
-           <tr>
-             <td>good book ;dslk;sd as;gag s;jdgsdg</td>
-             <td>2</td>
-             <td>
-               <button className='button delete'>-</button>
-               <button className='button add'>+</button>
-             </td>
-           </tr>
-           <tr>
-             <td>good book ;dslk;sd as;gag s;jdgsdg</td>
-             <td>2</td>
-             <td>
-               <button className='button delete'>-</button>
-               <button className='button add'>+</button>
-             </td>
-           </tr>
-           <tr>
-             <td>good book ;dslk;sd as;gag s;jdgsdg</td>
-             <td>2</td>
-             <td>
-               <button className='button delete'>-</button>
-               <button className='button add'>+</button>
-             </td>
-           </tr>
-           <tr>
-             <td>good book ;dslk;sd as;gag s;jdgsdg</td>
-             <td>2</td>
-             <td>
-               <button className='button delete'>-</button>
-               <button className='button add'>+</button>
-             </td>
-           </tr>
-           </tbody>
-         </table>
-       </div>
+      <h2>Your Cart</h2>
+      <CartTable/>
+      <div className='total'>
+        <p>Total: <span>500</span>$</p>
+        <button className='btn'>Order</button>
+      </div>
+    </div>
   )
 }
 
