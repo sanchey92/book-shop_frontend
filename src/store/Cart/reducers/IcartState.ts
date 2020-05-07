@@ -1,4 +1,6 @@
+import {IDataState} from "./IDataState";
+
 export interface ICartState {
-  data: any
+  data: IDataState
   isLoading: boolean
 }

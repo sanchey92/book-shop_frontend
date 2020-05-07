@@ -15,7 +15,6 @@ const ProductPage: FC = () => {
   // @ts-ignore
   useEffect(() => {
     dispatch(fetchProductsStart())
-    return () => dispatch(fetchProductsStart())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -41,6 +40,5 @@ const ProductPage: FC = () => {
     </ul>
   )
 }
-
 
 export default ProductPage;

@@ -4,7 +4,10 @@ import CartActionTypes from "../actions/CartActionTypes";
 import CartEnum from "../actions/CartEnum";
 
 const initialState: ICartState = {
-  data: [],
+  data: {
+    cartProducts: [],
+    totalPrice: 0
+  },
   isLoading: false
 }
 

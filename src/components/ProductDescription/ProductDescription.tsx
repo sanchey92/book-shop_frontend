@@ -23,7 +23,11 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById}) => {
     fetchById(idx);
     return () => fetchById();
     // eslint-disable-next-line
-  }, [idx])
+  }, [idx]);
+
+  const addClickHandler = (id: string) => {
+    console.log(id)
+  }
 
   return (
     <div className='product-description'>
@@ -36,7 +40,11 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById}) => {
           <p>Price: </p><span>{stateProduct.product?.price}</span>
           <p>Description:</p><span>{stateProduct.product?.description}</span>
           <div className='button-cart'>
-            <button>Add To Cart</button>
+            <button
+              onClick={() => addClickHandler(stateProduct.product?.id!)}
+            >
+              Add To Cart
+            </button>
           </div>
         </section>
       </div>
