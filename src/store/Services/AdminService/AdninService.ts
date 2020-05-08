@@ -16,6 +16,7 @@ export default class AdminService {
     }
 
     const response = await fetch(`${URL}/add-product`, setting);
+    console.log(response.json())
     return await response.json()
   }
 

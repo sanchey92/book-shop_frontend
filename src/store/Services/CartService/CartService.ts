@@ -11,9 +11,16 @@ export default class CartService {
   }
 
   static deleteFromCart = async (id: string) => {
-    const cartProducts =  await fetch(`http://localhost:3001/shop/cart/remove-product/${id}`, {
+    const data = {
+      id: id
+    }
+    const cartProducts =  await fetch(`http://localhost:3001/shop/cart/remove-product`, {
       method: 'POST',
-
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     });
     return await cartProducts.json()
   }

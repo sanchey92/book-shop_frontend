@@ -5,6 +5,7 @@ import {fetchProductById} from "../../store/Products/actions/ActionCreators";
 import {connect} from "react-redux";
 import {IStateInterface} from "../../store/Products/reducer/IState.interface";
 import './ProductDescription.css'
+import {addToCart} from "../../store/Cart/actions/CartActionCreators";
 
 export interface matchParams {
   prodId: string,
@@ -12,10 +13,11 @@ export interface matchParams {
 
 interface IProps extends RouteComponentProps<matchParams> {
   stateProduct: IStateInterface,
-  fetchById: Function
+  fetchById: Function,
+  addToCart: Function
 }
 
-const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById}) => {
+const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById, addToCart}) => {
 
   const idx = match.params.prodId;
 
@@ -26,7 +28,7 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById}) => {
   }, [idx]);
 
   const addClickHandler = (id: string) => {
-    console.log(id)
+    addToCart(id)
   }
 
   return (
@@ -59,7 +61,8 @@ const mapStateToProps = (state: IAppStateInterface) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    fetchById: (id: string) => dispatch(fetchProductById(id))
+    fetchById: (id: string) => dispatch(fetchProductById(id)),
+    addToCart: (id: string) => dispatch(addToCart(id))
   }
 }
 

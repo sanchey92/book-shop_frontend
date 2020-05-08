@@ -10,7 +10,7 @@ const ProductCard: FC<IProductInterface> = ({id, title, price, imgUrl}) => {
   const dispatch = useDispatch()
 
   const clickAddHandler = (id: string) => {
-    dispatch(addToCart(id))
+    dispatch(addToCart(id));
   }
 
   return (

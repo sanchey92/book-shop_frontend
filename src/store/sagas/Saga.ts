@@ -12,6 +12,7 @@ import {cartFetchFailure, cartFetchSuccess} from "../Cart/actions/CartActionCrea
 import CartEnum from "../Cart/actions/CartEnum";
 import {IAddToCart, IDeleteFromCart} from "../Cart/actions/CartInterfaces";
 
+
 const shopService = new ShopService()
 
 function* getProductsSaga(): any {
@@ -72,6 +73,15 @@ function* postAddToCart(action: IAddToCart) {
   }
 }
 
+function* postDeleteFromCart(action: IDeleteFromCart) {
+  try {
+    const response  = yield call(CartService.deleteFromCart, action.id);
+    const data = response.cartProducts;
+    yield put(cartFetchSuccess(data))
+  } catch (error) {
+    yield put(cartFetchFailure())
+  }
+}
 
 function* productSaga() {
   yield all([
@@ -81,6 +91,7 @@ function* productSaga() {
     takeEvery(ActionTypesEnum.DELETE_PRODUCT_BY_ID, deleteProductById),
     takeEvery(CartEnum.GET_CART, getCartSaga),
     takeEvery(CartEnum.ADD_TO_CART, postAddToCart),
+    takeEvery(CartEnum.DELETE_FROM_CART, postDeleteFromCart)
   ])
 }
 
