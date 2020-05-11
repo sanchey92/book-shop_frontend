@@ -5,7 +5,7 @@ import ProductsActionTypesEnum from "../Products/actions/ProductsActionTypes.enu
 import {IFetchProductById} from "../Products/actions/InterfacesActionCreators";
 import {IDeleteProduct, IPostAddProduct} from "../Admin/action/IActionCreators";
 import AdminService from "../Services/AdminService/AdninService";
-import {deleteSuccess, fetchFailure, fetchSuccess} from "../Admin/action/ActionCreators";
+import {fetchFailure, fetchSuccess} from "../Admin/action/ActionCreators";
 import ActionTypesEnum from "../Admin/action/ActionTypes.enum";
 import CartService from "../Services/CartService/CartService";
 import {cartFetchFailure, cartFetchSuccess} from "../Cart/actions/CartActionCreators";
@@ -45,9 +45,9 @@ function* postAddProductSaga(action: IPostAddProduct) {
 
 function* deleteProductById(action: IDeleteProduct) {
   try {
-    yield call(AdminService.deleteProductById, action.id)
-    yield call(getProductsSaga)
-    yield put(deleteSuccess())
+    const response =  yield call(AdminService.deleteProductById, action.id);
+    const products = response.products;
+    yield put(fetchProductSuccess(products))
   } catch {
     yield put(fetchFailure())
   }

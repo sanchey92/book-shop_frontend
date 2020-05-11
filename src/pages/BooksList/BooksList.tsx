@@ -1,25 +1,14 @@
-import React, {FC, useEffect} from "react";
-import './Bookslist.css'
-import {connect} from "react-redux";
-import IAppStateInterface from "../../store/IAppState.inteface";
-import {fetchProductsStart} from "../../store/Products/actions/ActionCreators";
+import React, {FC} from "react";
 import BookListItem from "../../components/BookListItem/BookListItem";
 import Loader from "../../components/Loader/Loader";
-import IProductInterface from "../../store/Products/reducer/IProduct.interface";
+import {useSelector} from "react-redux";
+import IAppStateInterface from "../../store/IAppState.inteface";
+import './Bookslist.css'
 
-type IProps = {
-  data: IProductInterface[],
-  loading: boolean,
-  fetchProducts: () => void
-}
+const BooksList: FC = () => {
 
-const BooksList: FC<IProps> = ({data, fetchProducts, loading}) => {
-
-  useEffect(() => {
-    fetchProducts()
-    return () => fetchProducts()
-    // eslint-disable-next-line
-  }, [])
+  const loading = useSelector((state: IAppStateInterface) => state.productState.isFetching);
+  const data = useSelector((state: IAppStateInterface) => state.productState.data);
 
   return (
     <div className='book-list-wrapper'>
@@ -40,17 +29,6 @@ const BooksList: FC<IProps> = ({data, fetchProducts, loading}) => {
   )
 }
 
-const mapStateToProps = (state: IAppStateInterface) => {
-  return {
-    data: state.productState.data,
-    loading: state.productState.isFetching
-  }
-}
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    fetchProducts: () => dispatch(fetchProductsStart())
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
+export default BooksList

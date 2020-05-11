@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {IStateInterface} from "../../store/Products/reducer/IState.interface";
 import './ProductDescription.css'
 import {addToCart} from "../../store/Cart/actions/CartActionCreators";
+import CartTotal from "../CartTotal/CartTotal";
 
 export interface matchParams {
   prodId: string,
@@ -32,25 +33,30 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById, addToCa
   }
 
   return (
-    <div className='product-description'>
-      <div className="product-description__card">
-        <section className="img_section">
-          <img src={stateProduct.product?.imgUrl!} alt={stateProduct.product?.title}/>
-        </section>
-        <section className="description_section">
-          <p>Title: </p><span>{stateProduct.product?.title}</span>
-          <p>Price: </p><span>{stateProduct.product?.price}</span>
-          <p>Description:</p><span>{stateProduct.product?.description}</span>
-          <div className='button-cart'>
-            <button
-              onClick={() => addClickHandler(stateProduct.product?.id!)}
-            >
-              Add To Cart
-            </button>
-          </div>
-        </section>
+    <>
+      <div className='cart-position'>
+        <CartTotal/>
       </div>
-    </div>
+      <div className='product-description'>
+        <div className="product-description__card">
+          <section className="img_section">
+            <img src={stateProduct.product?.imgUrl!} alt={stateProduct.product?.title}/>
+          </section>
+          <section className="description_section">
+            <p>Title: </p><span>{stateProduct.product?.title}</span>
+            <p>Price: </p><span>{stateProduct.product?.price}</span>
+            <p>Description:</p><span>{stateProduct.product?.description}</span>
+            <div className='button-cart'>
+              <button
+                onClick={() => addClickHandler(stateProduct.product?.id!)}
+              >
+                Add To Cart
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </>
   )
 }
 

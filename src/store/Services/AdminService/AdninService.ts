@@ -16,11 +16,11 @@ export default class AdminService {
     }
 
     const response = await fetch(`${URL}/add-product`, setting);
-    console.log(response.json())
     return await response.json()
   }
 
-  static deleteProductById = async (id: string) => {
-    return  await fetch(`http://localhost:3001/admin/delete-product/${id}`, {method: 'DELETE'});
+  static deleteProductById = async (id: string): Promise<IProductInterface> => {
+    const products = await fetch(`http://localhost:3001/admin/delete-product/${id}`, {method: 'DELETE'});
+    return await products.json();
   }
 }

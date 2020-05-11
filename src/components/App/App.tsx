@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import {Switch, Route} from 'react-router-dom';
 import Navigation from "../Navigation/Navigation";
 import ProductPage from "../../pages/ProductPage/ProductPage";
@@ -7,8 +7,20 @@ import ProductDescription from "../ProductDescription/ProductDescription";
 import AdminPage from "../../pages/AdminPage/AdminPage";
 import EditProductPage from "../../pages/EditProductPage/EditProduct";
 import BooksList from "../../pages/BooksList/BooksList";
+import {useDispatch} from "react-redux";
+import {fetchProductsStart} from "../../store/Products/actions/ActionCreators";
+import {getCart} from "../../store/Cart/actions/CartActionCreators";
 
 const App: FC = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+    dispatch(getCart());
+    // eslint-disable-next-line
+  }, []);
+
 
   const routes = [
     {link: '/', linkTitle: 'Books', exact: true},
