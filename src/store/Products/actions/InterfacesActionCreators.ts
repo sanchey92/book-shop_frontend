@@ -28,3 +28,9 @@ export interface IFetchProductByIdSuccess {
   product: IProductInterface,
   isLoading: boolean
 }
+
+export interface ISearchProductByString {
+  type: ProductsActionTypesEnum.SEARCH_PRODUCT_BY_STRING,
+  string: string,
+  isLoading: boolean
+}

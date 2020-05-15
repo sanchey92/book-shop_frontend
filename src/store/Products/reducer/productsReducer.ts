@@ -6,7 +6,8 @@ import productActions from "../actions/ActionTypes";
 const initialState: IStateInterface = {
   data: [],
   product: null,
-  isFetching: false
+  isFetching: false,
+  searchProduct: null
 }
 
 const productsReducer: Reducer<IStateInterface, productActions> = (
@@ -45,6 +46,13 @@ const productsReducer: Reducer<IStateInterface, productActions> = (
         product: actions.product,
         isFetching: actions.isLoading
       }
+
+    case ProductsActionTypesEnum.SEARCH_PRODUCT_BY_STRING:
+      return {
+        ...state,
+        searchProduct: state.data.filter(el => el.title.includes(actions.string))
+      }
+
     default:
       return state
   }

@@ -2,7 +2,7 @@ import {
   IFetchProductById, IFetchProductByIdSuccess,
   IFetchProductsFailure,
   IFetchProductStart,
-  IFetchProductSuccess
+  IFetchProductSuccess, ISearchProductByString
 } from "./InterfacesActionCreators";
 
 type productActions =
@@ -11,5 +11,6 @@ type productActions =
   | IFetchProductsFailure
   | IFetchProductById
   | IFetchProductByIdSuccess
+  | ISearchProductByString
 
 export default productActions

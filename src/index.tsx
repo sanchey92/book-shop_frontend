@@ -4,6 +4,6 @@ import './index.css';
 import Root from "./root/Root";
 import configureStore from "./store/store";
 
-const store = configureStore()
+const store = configureStore();
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root'));

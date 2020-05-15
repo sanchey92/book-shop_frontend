@@ -7,15 +7,18 @@ import IAppStateInterface from "../../store/IAppState.inteface";
 
 const ProductsGallery: FC = () => {
 
-  const data = useSelector((state: IAppStateInterface) => state.productState.data)
-  const loading = useSelector((state: IAppStateInterface) => state.productState.isFetching)
+  const data = useSelector((state: IAppStateInterface) => state.productState.data);
+  const loading = useSelector((state: IAppStateInterface) => state.productState.isFetching);
+  const search = useSelector((state: IAppStateInterface) => state.productState.searchProduct);
+
+  const dataGallery = search ? [...search] : [...data]
 
   return (
     <ul className='product-page'>
       {
         loading
           ? <Loader/>
-          : data.map(product => {
+          : dataGallery.map(product => {
             const {id, title, imgUrl, price,} = product
             return (
               <li key={id}>

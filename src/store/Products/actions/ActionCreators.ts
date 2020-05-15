@@ -4,7 +4,8 @@ import {
   IFetchProductByIdSuccess,
   IFetchProductsFailure,
   IFetchProductStart,
-  IFetchProductSuccess
+  IFetchProductSuccess,
+  ISearchProductByString
 } from "./InterfacesActionCreators";
 import IProductInterface from "../reducer/IProduct.interface";
 
@@ -46,10 +47,19 @@ const fetchProductByIdSuccess = (product: IProductInterface): IFetchProductByIdS
   }
 }
 
+const searchProductByString = (string: string): ISearchProductByString => {
+  return {
+    type: ProductsActionTypesEnum.SEARCH_PRODUCT_BY_STRING,
+    string,
+    isLoading: false
+  }
+}
+
 export {
   fetchProductsStart,
   fetchProductSuccess,
   fetchProductFailure,
   fetchProductById,
-  fetchProductByIdSuccess
+  fetchProductByIdSuccess,
+  searchProductByString
 }

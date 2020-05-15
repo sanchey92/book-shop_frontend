@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import ProductsGallery from "../../components/PriductsGallery/ProductsGallery";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import './ProductPage.css';
+import Search from "../../components/Search/Search";
 
 const ProductPage: FC = () => {
 
@@ -12,7 +13,7 @@ const ProductPage: FC = () => {
       </div>
       <div className='products-container'>
         <h1>Our Books Catalog</h1>
-
+        <Search/>
         <ProductsGallery/>
       </div>
     </>
