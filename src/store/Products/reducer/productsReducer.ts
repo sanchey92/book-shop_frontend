@@ -50,7 +50,7 @@ const productsReducer: Reducer<IStateInterface, productActions> = (
     case ProductsActionTypesEnum.SEARCH_PRODUCT_BY_STRING:
       return {
         ...state,
-        searchProduct: state.data.filter(el => el.title.includes(actions.string))
+        searchProduct: state.data.filter(el => el.title.toLowerCase().includes(actions.string.toLowerCase()))
       }
 
     default:

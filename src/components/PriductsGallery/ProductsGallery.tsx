@@ -11,7 +11,7 @@ const ProductsGallery: FC = () => {
   const loading = useSelector((state: IAppStateInterface) => state.productState.isFetching);
   const search = useSelector((state: IAppStateInterface) => state.productState.searchProduct);
 
-  const dataGallery = search ? [...search] : [...data]
+  const dataGallery = search ? search : data
 
   return (
     <ul className='product-page'>
