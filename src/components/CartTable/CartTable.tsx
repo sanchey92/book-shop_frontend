@@ -37,7 +37,7 @@ const CartTable: FC<IPropsCartTable> = ({productData}) => {
       {
         productData.map(el => {
           return (
-            <tr key={el.productData.id}>
+            <tr key={el.productData._id}>
               <td><img src={el.productData.imgUrl} alt={el.productData.title}/></td>
               <td>{el.productData.title}</td>
               <td>{el.productData.price}</td>
@@ -45,12 +45,12 @@ const CartTable: FC<IPropsCartTable> = ({productData}) => {
               <td>
                 <button
                   className='button delete'
-                  onClick={() => clickDeleteHandler(el.productData.id!)}
+                  onClick={() => clickDeleteHandler(el.productData._id!)}
                 >-
                 </button>
                 <button
                   className='button add'
-                  onClick={() => clickAddHandler(el.productData.id!)}
+                  onClick={() => clickAddHandler(el.productData._id!)}
                 >+
                 </button>
               </td>

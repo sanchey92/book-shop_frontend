@@ -1,5 +1,5 @@
 export default interface IProductInterface {
-  id?: string,
+  _id: string,
   title: string
   imgUrl: string
   price: number

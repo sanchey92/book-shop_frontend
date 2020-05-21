@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import BookListItem from "../../components/BookListItem/BookListItem";
 import Loader from "../../components/Loader/Loader";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import IAppStateInterface from "../../store/IAppState.inteface";
 import './Bookslist.css'
 
@@ -18,8 +18,8 @@ const BooksList: FC = () => {
             ? <Loader/>
             : data.map(el => {
               return (
-                <li key={el.id}>
-                  <BookListItem id={el.id!} title={el.title}/>
+                <li key={el._id}>
+                  <BookListItem id={el._id!} title={el.title}/>
                 </li>
               )
             })
@@ -28,7 +28,5 @@ const BooksList: FC = () => {
     </div>
   )
 }
-
-
 
 export default BooksList

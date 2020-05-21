@@ -5,6 +5,7 @@ import {
   IFetchProductsFailure,
   IFetchProductStart,
   IFetchProductSuccess,
+  IRemoveProductDetails,
   ISearchProductByString
 } from "./InterfacesActionCreators";
 import IProductInterface from "../reducer/IProduct.interface";
@@ -55,11 +56,18 @@ const searchProductByString = (string: string): ISearchProductByString => {
   }
 }
 
+const removeProductDetails = () : IRemoveProductDetails => {
+  return {
+    type: ProductsActionTypesEnum.REMOVE_PRODUCT_DETAILS
+  }
+}
+
 export {
   fetchProductsStart,
   fetchProductSuccess,
   fetchProductFailure,
   fetchProductById,
   fetchProductByIdSuccess,
-  searchProductByString
+  searchProductByString,
+  removeProductDetails
 }

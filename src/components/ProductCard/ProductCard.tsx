@@ -5,12 +5,12 @@ import './ProductCard.css'
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/Cart/actions/CartActionCreators";
 
-const ProductCard: FC<IProductInterface> = ({id, title, price, imgUrl}) => {
+const ProductCard: FC<IProductInterface> = ({_id, title, price, imgUrl}) => {
 
   const dispatch = useDispatch()
 
-  const clickAddHandler = (id: string) => {
-    dispatch(addToCart(id));
+  const clickAddHandler = (_id: string) => {
+    dispatch(addToCart(_id));
   }
 
   return (
@@ -25,10 +25,10 @@ const ProductCard: FC<IProductInterface> = ({id, title, price, imgUrl}) => {
         <p>Price:</p> <span>{price}$</span>
       </section>
       <section className='product-card__controls'>
-        <Link to={'/products/' + id} className='btn'>Description</Link>
+        <Link to={'/products/' + _id} className='btn'>Description</Link>
         <button
           className='btn'
-          onClick={() => clickAddHandler(id!)}
+          onClick={() => clickAddHandler(_id!)}
         >
           Add to Cart
         </button>

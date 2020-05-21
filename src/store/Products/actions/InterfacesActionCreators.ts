@@ -34,3 +34,6 @@ export interface ISearchProductByString {
   string: string,
   isLoading: boolean
 }
+export interface IRemoveProductDetails {
+  type: ProductsActionTypesEnum.REMOVE_PRODUCT_DETAILS
+}

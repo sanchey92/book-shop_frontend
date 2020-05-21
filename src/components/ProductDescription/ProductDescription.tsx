@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from "react";
 import {RouteComponentProps} from "react-router";
 import IAppStateInterface from "../../store/IAppState.inteface";
-import {fetchProductById} from "../../store/Products/actions/ActionCreators";
+import {fetchProductById, removeProductDetails} from "../../store/Products/actions/ActionCreators";
 import {connect} from "react-redux";
 import {IStateInterface} from "../../store/Products/reducer/IState.interface";
 import './ProductDescription.css'
@@ -15,18 +15,20 @@ export interface matchParams {
 interface IProps extends RouteComponentProps<matchParams> {
   stateProduct: IStateInterface,
   fetchById: Function,
-  addToCart: Function
+  addToCart: Function,
+  removeProduct: Function
 }
 
-const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById, addToCart}) => {
+const ProductDescription: FC<IProps> =
+  ({match, stateProduct, fetchById, addToCart, removeProduct}) => {
 
   const idx = match.params.prodId;
 
   useEffect(() => {
     fetchById(idx);
-    return () => fetchById();
+    return  () =>  removeProduct();
     // eslint-disable-next-line
-  }, [idx]);
+  }, []);
 
   const addClickHandler = (id: string) => {
     addToCart(id)
@@ -48,7 +50,7 @@ const ProductDescription: FC<IProps> = ({match, stateProduct, fetchById, addToCa
             <p>Description:</p><span>{stateProduct.product?.description}</span>
             <div className='button-cart'>
               <button
-                onClick={() => addClickHandler(stateProduct.product?.id!)}
+                onClick={() => addClickHandler(stateProduct.product?._id!)}
               >
                 Add To Cart
               </button>
@@ -68,7 +70,8 @@ const mapStateToProps = (state: IAppStateInterface) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchById: (id: string) => dispatch(fetchProductById(id)),
-    addToCart: (id: string) => dispatch(addToCart(id))
+    addToCart: (id: string) => dispatch(addToCart(id)),
+    removeProduct: () => dispatch(removeProductDetails())
   }
 }
 

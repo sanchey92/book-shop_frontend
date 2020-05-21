@@ -53,6 +53,12 @@ const productsReducer: Reducer<IStateInterface, productActions> = (
         searchProduct: state.data.filter(el => el.title.toLowerCase().includes(actions.string.toLowerCase()))
       }
 
+    case ProductsActionTypesEnum.REMOVE_PRODUCT_DETAILS:
+      return {
+        ...state,
+        product: null
+      }
+
     default:
       return state
   }
