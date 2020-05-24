@@ -5,7 +5,7 @@ import CartEnum from "../actions/CartEnum";
 
 const initialState: ICartState = {
   data: {
-    cartProducts: [],
+    items: [],
     totalPrice: 0
   },
   isLoading: false

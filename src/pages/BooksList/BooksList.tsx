@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import BookListItem from "../../components/BookListItem/BookListItem";
 import Loader from "../../components/Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import IAppStateInterface from "../../store/IAppState.inteface";
 import './Bookslist.css'
 

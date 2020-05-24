@@ -6,7 +6,7 @@ import './CartTotal.css';
 
 const CartTotal: FC = () => {
 
-  const total = useSelector((state: IAppStateInterface) => state.cartState.data.totalPrice)
+  const total = useSelector((state: IAppStateInterface) => state.cartState.data.totalPrice!)
 
   return (
     <div className='total-wrapper'>

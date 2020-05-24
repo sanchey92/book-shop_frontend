@@ -1,11 +1,11 @@
 import IProductInterface from "../../Products/reducer/IProduct.interface";
 
 export interface ICartItem {
-  productData: IProductInterface,
+  productId: IProductInterface
   quantity: number
 }
 
 export interface IDataState {
-  cartProducts: ICartItem[],
+  items: ICartItem[]
   totalPrice: number
 }

@@ -13,10 +13,10 @@ const Cart: FC = () => {
     <div className='table-wrapper'>
       <h2>Your Cart</h2>
       {
-        data.cartProducts.length > 0
+        data.items.length > 0
           ? (
             <Fragment>
-              <CartTable productData={data.cartProducts}/>
+              <CartTable productData={data.items}/>
               <div className='total'>
                 <p>Total: <span>{data.totalPrice}</span>$</p>
                 <button className='btn'>Order</button>

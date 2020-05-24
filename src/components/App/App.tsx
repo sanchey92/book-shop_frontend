@@ -8,10 +8,15 @@ import AdminPage from "../../pages/AdminPage/AdminPage";
 import EditProductPage from "../../pages/EditProductPage/EditProduct";
 import BooksList from "../../pages/BooksList/BooksList";
 import {useDispatch} from "react-redux";
+import {getCart} from "../../store/Cart/actions/CartActionCreators";
 
 const App: FC = () => {
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCart())
+  })
 
   const routes = [
     {link: '/', linkTitle: 'Books', exact: true},

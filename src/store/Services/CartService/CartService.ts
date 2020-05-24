@@ -6,7 +6,7 @@ export default class CartService {
   }
 
   static addToCart = async (id: string) => {
-    const cartProducts =  await fetch(`http://localhost:3001/shop/cart/${id}`);
+    const cartProducts =  await fetch(`http://localhost:3001/shop/cart/${id}`, {method: 'POST'});
     return await  cartProducts.json()
   }
 
