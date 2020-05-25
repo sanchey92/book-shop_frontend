@@ -1,4 +1,12 @@
+.total-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .total-wrapper p  {
   text-decoration: underline;
   cursor: pointer;
+  color: white;
+  font-weight: bold;
 }

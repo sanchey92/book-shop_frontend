@@ -1,0 +1,14 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-item {
+  margin-top: 2rem;
+  padding: 20px;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  box-shadow: 0 0 5px dodgerblue;
+}

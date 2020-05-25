@@ -1,16 +1,33 @@
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  background-color: dodgerblue;
+  height: 3.5rem;
+}
+
 nav {
   display: flex;
   align-items: center;
-  background-color: dodgerblue;
-  height: 50px;
 }
 
 a {
-  margin: 10px;
-  text-decoration: none;
   color: white;
-  font-size: 18px;
-  outline: none;
+  font-size: 1.3rem;
+  margin-right: .8rem;
+  text-decoration: none;
+}
+
+.nav-login {
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
 }
 
 .active {
