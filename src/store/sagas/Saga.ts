@@ -11,6 +11,9 @@ import CartService from "../Services/CartService/CartService";
 import {cartFetchFailure, cartFetchSuccess} from "../Cart/actions/CartActionCreators";
 import CartEnum from "../Cart/actions/CartEnum";
 import {IAddToCart, IDeleteFromCart} from "../Cart/actions/CartInterfaces";
+import OrdersActionsEnum from "../Orders/actions/OrdersActions.enum";
+import OrderService from "../Services/OrderService/OrderService";
+import {fetchOrderFailure, fetchOrderSuccess} from "../Orders/actions/OrderActionCreators";
 
 
 const shopService = new ShopService()
@@ -83,6 +86,26 @@ function* postDeleteFromCart(action: IDeleteFromCart) {
   }
 }
 
+function* getOrderSaga() {
+  try {
+    const response = yield call(OrderService.getOrders)
+    const orders = response.orders
+    yield put(fetchOrderSuccess(orders))
+  } catch (e) {
+    yield put(fetchOrderFailure())
+  }
+}
+
+function* postOrderSaga() {
+  try {
+    const response =  yield call(OrderService.postOrder)
+    const cart = response.cartProducts
+    yield put(cartFetchSuccess(cart))
+  } catch (e) {
+    yield put(fetchOrderFailure())
+  }
+}
+
 function* productSaga() {
   yield all([
     takeEvery(ProductsActionTypesEnum.FETCH_PRODUCTS_START, getProductsSaga),
@@ -91,7 +114,9 @@ function* productSaga() {
     takeEvery(ActionTypesEnum.DELETE_PRODUCT_BY_ID, deleteProductById),
     takeEvery(CartEnum.GET_CART, getCartSaga),
     takeEvery(CartEnum.ADD_TO_CART, postAddToCart),
-    takeEvery(CartEnum.DELETE_FROM_CART, postDeleteFromCart)
+    takeEvery(CartEnum.DELETE_FROM_CART, postDeleteFromCart),
+    takeEvery(OrdersActionsEnum.GET_ORDER_START, getOrderSaga),
+    takeEvery(OrdersActionsEnum.POST_ORDERS_START, postOrderSaga)
   ])
 }
 

@@ -4,7 +4,7 @@
   align-items: center;
   align-content: center;
   background-color: dodgerblue;
-  height: 3.5rem;
+  height: 4rem;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
 a {
   color: white;
   font-size: 1.3rem;
-  margin-right: .8rem;
+  margin-right: 1rem;
   text-decoration: none;
 }
 

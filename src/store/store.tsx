@@ -7,13 +7,15 @@ import {productSaga} from "./sagas/Saga";
 import {reducer as formReducer} from "redux-form";
 import adminReducer from "./Admin/reducer/AdminReducer";
 import cartReducer from "./Cart/reducers/CartReducer";
+import orderReducer from "./Orders/reducers/orderReducer";
 
 const sagaMiddleware = createSagaMiddleware()
 const rootReducer = combineReducers({
   productState: productsReducer,
   form: formReducer,
   adminState: adminReducer,
-  cartState: cartReducer
+  cartState: cartReducer,
+  orderState: orderReducer
 })
 
 export default function configureStore(): Store<IAppStateInterface, any> {

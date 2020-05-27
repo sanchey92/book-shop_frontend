@@ -1,15 +1,37 @@
-import React, { FC } from "react";
+import React, {FC, useEffect} from "react";
 import './OrdersPage.css'
+import Order from "../../components/Order/Order";
+import {useDispatch, useSelector} from "react-redux";
+import {getOrderStart} from "../../store/Orders/actions/OrderActionCreators";
+import IAppStateInterface from "../../store/IAppState.inteface";
 
 const OrdersPage: FC = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getOrderStart())
+  }, []);
+
+  const orderState = useSelector((state: IAppStateInterface) => state.orderState);
+  const orders = orderState.orders
 
   return (
     <div className='orders'>
       <h2>Orders</h2>
-      <div className='order-item'>
-        <p>Order № <span>ksalksa 2134213940 </span></p>
-        <p>Products name: <span>Learning book</span></p>
-      </div>
+      {
+        orders.map((el) => {
+          const {totalPrice, _id, products} = el
+          return (
+            <Order
+              key={el.user.userId}
+              id={_id}
+              products={products}
+              totalPrice={totalPrice}
+            />
+          )
+        })
+      }
     </div>
   )
 }
