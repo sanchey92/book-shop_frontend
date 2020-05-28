@@ -1,3 +1,4 @@
 export interface IAdminReducer {
-  isFetching: boolean
+  isFetching: boolean,
+  isAuth: boolean
 }

@@ -3,8 +3,9 @@ import {IAdminReducer} from "./IAdminReducer";
 import AdminAction from "../action/ActionTypes";
 import ActionTypesEnum from "../action/ActionTypes.enum";
 
-const initialState = {
-  isFetching: false
+const initialState: IAdminReducer = {
+  isFetching: false,
+  isAuth: false
 }
 
 const adminReducer: Reducer<IAdminReducer, AdminAction> =

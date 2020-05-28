@@ -10,7 +10,8 @@ const OrdersPage: FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getOrderStart())
+    dispatch(getOrderStart());
+    // eslint-disable-next-line
   }, []);
 
   const orderState = useSelector((state: IAppStateInterface) => state.orderState);
