@@ -25,7 +25,7 @@ const OrdersPage: FC = () => {
           const {totalPrice, _id, products} = el
           return (
             <Order
-              key={el.user.userId}
+              key={el._id}
               id={_id}
               products={products}
               totalPrice={totalPrice}
