@@ -1,10 +1,11 @@
 import React, {ChangeEvent, FC, FormEvent, useState} from "react";
 import './Login.css'
+import {IAuthData} from "../../store/Services/AuthService/AuthService";
 
 const Login: FC = () => {
 
-  const formData = {email: '', password: ''}
-  const [data, setData] = useState(formData)
+  const formData: IAuthData = {email: '', password: ''}
+  const [data, setData] = useState<IAuthData>(formData)
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = event.currentTarget;
@@ -13,7 +14,6 @@ const Login: FC = () => {
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
-    console.log(data)
     setData(formData);
   }
 
