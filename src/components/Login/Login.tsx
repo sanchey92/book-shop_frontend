@@ -1,11 +1,15 @@
 import React, {ChangeEvent, FC, FormEvent, useState} from "react";
 import './Login.css'
 import {IAuthData} from "../../store/Services/AuthService/AuthService";
+import {useDispatch} from "react-redux";
+import {postUserSignUp} from "../../store/AuthUser/action/ActionCreators";
 
 const Login: FC = () => {
 
   const formData: IAuthData = {email: '', password: ''}
   const [data, setData] = useState<IAuthData>(formData)
+
+  const dispatch = useDispatch();
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = event.currentTarget;
@@ -14,6 +18,7 @@ const Login: FC = () => {
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    dispatch(postUserSignUp(data))
     setData(formData);
   }
 

@@ -6,6 +6,7 @@ import AuthEnum from "../action/Auth.Enum";
 const initialState: IUserState = {
   loading: false,
   isError: false,
+  isSuccess: false,
   message: ''
 }
 
@@ -22,6 +23,22 @@ const UserReducer: Reducer<IUserState, UserTypes> = (state = initialState, actio
       return {
         ...state,
         loading: actions.loading
+      }
+
+    case AuthEnum.POST_USER_SUCCESS:
+      return {
+        ...state,
+        loading: actions.loading,
+        isSuccess: actions.isSuccess,
+        message: actions.message
+      }
+
+    case AuthEnum.POST_USER_FAILURE:
+      return {
+        ...state,
+        loading: actions.loading,
+        isError: actions.isError,
+        message: actions.message
       }
 
     default:

@@ -14,6 +14,10 @@ import {IAddToCart, IDeleteFromCart} from "../Cart/actions/CartInterfaces";
 import OrdersActionsEnum from "../Orders/actions/OrdersActions.enum";
 import OrderService from "../Services/OrderService/OrderService";
 import {fetchOrderFailure, fetchOrderSuccess} from "../Orders/actions/OrderActionCreators";
+import {IPostUserSignUp} from "../AuthUser/action/IActionCreators";
+import { postUserSuccess} from "../AuthUser/action/ActionCreators";
+import AuthService from "../Services/AuthService/AuthService";
+import AuthEnum from "../AuthUser/action/Auth.Enum";
 
 
 const shopService = new ShopService()
@@ -106,6 +110,16 @@ function* postOrderSaga() {
   }
 }
 
+function* postSignUpSaga(action: IPostUserSignUp) {
+  try {
+    const response = yield call(AuthService.singUp, action.data)
+    const message = response.message
+    yield put(postUserSuccess(message))
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 function* productSaga() {
   yield all([
     takeEvery(ProductsActionTypesEnum.FETCH_PRODUCTS_START, getProductsSaga),
@@ -116,7 +130,8 @@ function* productSaga() {
     takeEvery(CartEnum.ADD_TO_CART, postAddToCart),
     takeEvery(CartEnum.DELETE_FROM_CART, postDeleteFromCart),
     takeEvery(OrdersActionsEnum.GET_ORDER_START, getOrderSaga),
-    takeEvery(OrdersActionsEnum.POST_ORDERS_START, postOrderSaga)
+    takeEvery(OrdersActionsEnum.POST_ORDERS_START, postOrderSaga),
+    takeEvery(AuthEnum.POST_USER_SIGN_UP, postSignUpSaga)
   ])
 }
 
