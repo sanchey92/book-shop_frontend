@@ -7,7 +7,8 @@ const initialState: IUserState = {
   loading: false,
   isError: false,
   isSuccess: false,
-  message: ''
+  message: '',
+  isAuth: false
 }
 
 const UserReducer: Reducer<IUserState, UserTypes> = (state = initialState, actions): IUserState => {
@@ -30,7 +31,8 @@ const UserReducer: Reducer<IUserState, UserTypes> = (state = initialState, actio
         ...state,
         loading: actions.loading,
         isSuccess: actions.isSuccess,
-        message: actions.message
+        message: actions.message,
+        isAuth: actions.isAuth
       }
 
     case AuthEnum.POST_USER_FAILURE:

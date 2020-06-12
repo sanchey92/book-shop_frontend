@@ -2,5 +2,6 @@ export interface IUserState {
   loading: boolean,
   isError: boolean,
   isSuccess: boolean
-  message: string
+  message: string,
+  isAuth: boolean
 }

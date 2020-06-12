@@ -22,6 +22,7 @@ const postUserSuccess = (message: string): IPostUserSuccess => {
     type: AuthEnum.POST_USER_SUCCESS,
     loading: false,
     isSuccess: true,
+    isAuth: true,
     message
   }
 }

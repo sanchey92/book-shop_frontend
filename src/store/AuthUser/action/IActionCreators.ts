@@ -16,6 +16,7 @@ export interface IPostUserSuccess {
   type: AuthEnum.POST_USER_SUCCESS,
   loading: boolean,
   isSuccess: boolean,
+  isAuth: boolean
   message: string
 }
 
